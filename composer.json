@@ -1,0 +1,13 @@
+{
+    "name": "algorithm/php",
+    "description": "数据结构与算法",
+    "type": "project",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "_Array\\": "_Array/",
+            "_LinkedList\\": "_LinkedList/",
+            "_Stack\\": "_Stack/"
+        }
+    }
+}
