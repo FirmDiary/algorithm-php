@@ -11,7 +11,7 @@ namespace _LinkedList;
  * 链表
  * Class LinkedListStructure
  */
-class LinkedNode
+class LinkedNodeStructure
 {
     //后继指针
     public $next;

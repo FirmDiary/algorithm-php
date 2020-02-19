@@ -6,25 +6,24 @@
  */
 
 namespace _LinkedList;
-require "./LinkedNode.php";
 
 /**
  * 单链表
  * Class LinkedListStructure
  */
-class SingleLinkedListStructure
+class SingleLinkedList
 {
     //头结点
     public $head;
 
     public function __construct()
     {
-        $this->head = new LinkedNode();
+        $this->head = new LinkedNodeStructure();
     }
 
     public function append($value)
     {
-        $newNode = new LinkedNode($value);
+        $newNode = new LinkedNodeStructure($value);
         $currentNode = $this->head;
         while ($currentNode->next) {
             $currentNode = $currentNode->next;
@@ -85,15 +84,3 @@ class SingleLinkedListStructure
 }
 
 
-$linked = new SingleLinkedListStructure();
-
-$linked->append(333);
-$linked->append(444);
-$linked->append(2222);
-$linked->deleteLastOne();
-$linked->append(555);
-$linked->deleteByValue(555);
-$linked->append(666);
-$linked->append(777);
-$linked->deleteLastOne();
-echo $linked->show();
