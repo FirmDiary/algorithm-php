@@ -14,11 +14,11 @@ namespace _Array;
 class ArrayStructure
 {
 
-    private $data;
+    public $data;
 
-    private $capacity;
+    public $capacity;
 
-    private $length = 0;
+    public $length = 0;
 
 
     /**
@@ -113,7 +113,6 @@ class ArrayStructure
                 $str .= ',';
             }
         }
-
         return $str;
     }
 
@@ -139,18 +138,4 @@ class ArrayStructure
 }
 
 
-$newArray = new ArrayStructure(4);
 
-$newArray->insert(0, 'Hello');
-$newArray->insert(1, 'World');
-
-$newArray->insert(2, '!');
-$newArray->insert(3, 'haha');
-
-// $newArray->insert(4, 'huhu');
-
-$newArray->delete(3);
-
-echo $newArray->find(3);
-echo PHP_EOL;
-echo $newArray->show();
