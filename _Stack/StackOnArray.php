@@ -8,31 +8,30 @@
 namespace _Stack;
 
 
-use _Array\ArrayStructure;
-use _LinkedList\LinkedNodeStructure;
-
 /**
- * 基于数组实现的式顺序栈
+ * 基于数组实现的是顺序栈
  * Class StackOnArray
  * @package _Stack
  */
 class StackOnArray
 {
 
-    protected $stack;
+    private $stack;
 
-    protected $length;
+    private $head;
 
-    public function __construct($length = 10)
+    private $n;
+
+    public function __construct($capacity = 10)
     {
-        $this->stack = new ArrayStructure($length);
+        $this->stack = [];
 
-        $this->length = $length;
+        $this->head = 0;
+        $this->n = $capacity;
     }
 
     /**
      * 入栈
-     * @param LinkedNodeStructure $node
      * @return bool
      */
     public function push($value)
@@ -40,7 +39,15 @@ class StackOnArray
         if ($value == null) {
             return false;
         }
-        $this->stack->insert($this->stack->length, $value);
+        if ($this->head == $this->n) {
+            //扩容
+            $newStack = [];
+            foreach ($this->stack as $item) {
+                $newStack[] = $item;
+            }
+            $this->n *= 2;
+        }
+        $this->stack[$this->head++] = $value;
         return true;
     }
 
@@ -50,8 +57,8 @@ class StackOnArray
      */
     public function pop()
     {
-        if ($this->stack->length > 0) {
-            $this->stack->delete($this->stack->length-1);
+        if ($this->head > 0) {
+            $this->stack[--$this->head];
             return true;
         }
         return false;
@@ -60,7 +67,17 @@ class StackOnArray
 
     public function show()
     {
-        return $this->stack->show();
+        if ($this->head == 0) {
+            return null; //空
+        }
+        $str = '';
+        for ($i = $this->head; $i > 0; $i--) {
+            $str .= $this->stack[$i - 1];
+            if ($i > 1) {
+                $str .= ',';
+            }
+        }
+        return $str;
     }
 
 }

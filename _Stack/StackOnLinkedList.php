@@ -18,14 +18,14 @@ use _LinkedList\LinkedNodeStructure;
 class StackOnLinkedList
 {
 
-    protected $head;
+    private $head;
 
-    protected $length;
+    private $n;
 
     public function __construct()
     {
         $this->head = new LinkedNodeStructure();
-        $this->length = 0;
+        $this->n = 0;
     }
 
     public function pushValue($value)
@@ -45,7 +45,7 @@ class StackOnLinkedList
         }
         $node->next = $this->head->next;
         $this->head->next = $node;
-        $this->length++;
+        $this->n++;
         return true;
     }
 
@@ -55,9 +55,9 @@ class StackOnLinkedList
      */
     public function pop()
     {
-        if ($this->length > 0) {
+        if ($this->n > 0) {
             $this->head->next = $this->head->next->next;
-            $this->length--;
+            $this->n--;
             return true;
         }
         return false;
@@ -66,7 +66,7 @@ class StackOnLinkedList
 
     public function show()
     {
-        if ($this->length == 0) {
+        if ($this->n == 0) {
             return '';
         }
         $str = 'head->';
