@@ -7,7 +7,8 @@
         "psr-4": {
             "_Array\\": "_Array/",
             "_LinkedList\\": "_LinkedList/",
-            "_Stack\\": "_Stack/"
+            "_Stack\\": "_Stack/",
+            "_Queue\\": "_Queue/"
         }
     }
 }
